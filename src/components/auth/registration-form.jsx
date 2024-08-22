@@ -14,9 +14,9 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
 
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    gender: "",
+    firstName: "asd",
+    lastName: "asd",
+    gender: "Male",
   };
 
   const validationSchema = Yup.object({
@@ -33,7 +33,6 @@ const RegistrationForm = () => {
     setLoading(true);
     dispatch(register(formik.values));
     navigate("/dashboard");
-    console.log(values);
     setLoading(false);
   };
 

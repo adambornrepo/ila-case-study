@@ -1,0 +1,40 @@
+@use "../../styles/variables.scss" as v;
+
+.dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid v.$color1;
+    background-color: v.$color2;
+
+    .footer-copyright-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: v.$color-white;
+
+        @media (min-width: 576px) {
+            justify-content: flex-start;
+        }
+
+    }
+
+    .footer-social-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+
+        @media (min-width: 576px) {
+            justify-content: flex-end;
+            margin-bottom: 0;
+        }
+
+        a {
+            width: 32px;
+            height: 32px;
+            padding: 8px;
+        }
+    }
+}
