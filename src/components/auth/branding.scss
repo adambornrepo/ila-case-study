@@ -1,0 +1,39 @@
+@use "../../styles/variables.scss" as v;
+
+.branding-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    height: fit-content;
+
+    .image-wrapper img {
+        width: 120px;
+
+        @media (min-width: 992px) {
+            width: 200px;
+        }
+    }
+
+    .logo-text {
+        position: relative;
+        top: -10px;
+        font-size: 1rem;
+        font-weight: 200;
+        width: 60%;
+        min-width: fit-content;
+        margin: 0 auto;
+        color: v.$color-white;
+        border-bottom: 1px solid v.$color-white;
+        padding-bottom: 20px;
+
+        @media (min-width: 992px) {
+            font-size: 1.25rem;
+            top: -20px;
+        }
+    }
+
+    .social-links-wrapper {
+        padding-top: 10px;
+    }
+}

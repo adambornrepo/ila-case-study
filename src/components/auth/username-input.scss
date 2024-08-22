@@ -1,0 +1,32 @@
+@use "../../styles/variables.scss" as v;
+
+.password-input-group {
+    position: relative;
+    gap: 1px;
+
+    .input-group-text {
+        border-radius: 8px 0 0 8px;
+        background-color: v.$color1;
+        color: v.$color-white;
+        border: 1px solid v.$color1;
+        transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+
+        &.invalid {
+            border-color: v.$color-error-light;
+            background-color: v.$color-error-light;
+            color: v.$color-white;
+        }
+    }
+
+    .user-input {
+        padding: 10px;
+        border-radius: 0 8px 8px 0 !important;
+    }
+
+    .form-feedback {
+        position: absolute;
+        bottom: -20px;
+        left: 0px;
+    }
+
+}

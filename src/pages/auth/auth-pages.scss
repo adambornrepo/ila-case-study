@@ -1,0 +1,56 @@
+@use "../../styles/variables" as v;
+
+.auth-page-container {
+    height: 100vh;
+    padding: 0 !important;
+
+    .page-content-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        overflow-x: hidden;
+
+        @media (min-width: 992px) {
+            flex-direction: row;
+
+            .auth-form-side,
+            .auth-form-main {
+                width: 50%;
+            }
+        }
+
+        .auth-form-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: v.$color2;
+            width: 100%;
+        }
+
+        .auth-form-main {
+            display: flex;
+            flex-grow: 1;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .login-form-wrapper {
+                max-width: 90%;
+                width: 500px;
+
+                .submit-button {
+                    display: flex;
+                    gap: 10px;
+                    width: 100%;
+                    font-size: 14px;
+                    padding: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    letter-spacing: 2px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@use "../../styles/variables.scss" as v;
+
+.form-header-wrapper {
+    img {
+        width: 80px;
+    }
+
+    .form-title {
+        min-width: 80px;
+        text-align: center;
+        padding: 5px 0 15px 0;
+        border-top: 1px solid v.$color-black;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+}
