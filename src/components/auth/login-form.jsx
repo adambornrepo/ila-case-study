@@ -10,6 +10,7 @@ import {
   resetFailure,
 } from "../../store/slices/auth-slice";
 import ReCAPTCHA from "react-google-recaptcha";
+import toast from "react-hot-toast";
 import { Button, Form } from "react-bootstrap";
 import UsernameInput from "./username-input";
 import PasswordInput from "./password-input";
@@ -43,7 +44,7 @@ const LoginForm = () => {
       navigate("/register");
     } catch (error) {
       dispatch(failAttempt());
-      // TODO : Show toast error
+      toast.error("Invalid username or password");
     } finally {
       setLoading(false);
     }
