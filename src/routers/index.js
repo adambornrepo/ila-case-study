@@ -25,7 +25,10 @@ const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <RegistrationPage />,
+        element: (
+          <PrivateRoute>
+            <RegistrationPage />
+          </PrivateRoute>)
       },
       {
         path: "not-found",

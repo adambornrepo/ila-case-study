@@ -11,10 +11,10 @@ import {
 } from "../../store/slices/auth-slice";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import UsernameInput from "./username-input";
 import PasswordInput from "./password-input";
-import ButtonLoader from "../common/button-loader";
+import SubmitButton from "./submit-button";
 
 const RECAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_SECRET_KEY;
 const MAX_FAILURE = process.env.REACT_APP_MAX_LOGIN_FAILURE;
@@ -26,8 +26,8 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const initialValues = {
-    username: "",
-    password: "",
+    username: "john",
+    password: "m38rmF$",
   };
 
   const validationSchema = Yup.object({
@@ -68,30 +68,16 @@ const LoginForm = () => {
           <PasswordInput formik={formik} field="password" />
 
           <div className="form-submit-button">
-            <div className="recaptcha-wrapper d-flex justify-content-center">
-              <ReCAPTCHA
-                className={failure >= MAX_FAILURE ? "" : "d-none"}
-                sitekey={RECAPTCHA_KEY}
-                onChange={handleRecaptcha}
-              />
-            </div>
-            {failure < MAX_FAILURE && (
-              <Button
-                variant="secondary"
-                type="submit"
-                className="submit-button"
-                disabled={!formik.isValid || loading}
-              >
-                {loading ? (
-                  <>
-                    <span>&nbsp;</span>
-                    <ButtonLoader />
-                    <span>&nbsp;</span>
-                  </>
-                ) : (
-                  <span>LOGIN</span>
-                )}
-              </Button>
+            {failure < MAX_FAILURE ? (
+              <SubmitButton formik={formik} loading={loading} label="Login" />
+            ) : (
+              <div className="recaptcha-wrapper d-flex justify-content-center">
+                <ReCAPTCHA
+                  // className={failure >= MAX_FAILURE ? "" : "d-none"}
+                  sitekey={RECAPTCHA_KEY}
+                  onChange={handleRecaptcha}
+                />
+              </div>
             )}
           </div>
         </Form>

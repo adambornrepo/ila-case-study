@@ -1,0 +1,14 @@
+.flags-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .flag-tr {
+        height: 64px;
+    }
+
+    .flag-eu {
+        height: 70px;
+    }
+}
