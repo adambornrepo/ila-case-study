@@ -1,55 +1,64 @@
-import { useEffect, useState } from "react";
-import {
-  Navbar,
-  Nav,
-  Container,
-  Image,
-  Button,
-  NavDropdown,
-} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../store/slices/auth-slice";
+import { Navbar, Container, Image, NavDropdown } from "react-bootstrap";
+import { SlUserFemale, SlUser } from "react-icons/sl";
+import { FaUserCircle } from "react-icons/fa";
 import "./header.scss";
 
 const Header = () => {
-  const [mode, setMode] = useState("default");
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleScroll = () => {
-    const scrollYPosition = window.scrollY;
-    if (scrollYPosition > 250) {
-      setMode("changed");
-    } else {
-      setMode("default");
+  const getProfileIcon = () => {
+    switch (user?.gender) {
+      case "Male":
+        return <SlUser className="profile-icon" size={30} />;
+      case "Female":
+        return <SlUserFemale className="profile-icon" size={30} />;
+      default:
+        return <FaUserCircle className="profile-icon" size={30} />;
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
 
   return (
-    <header>
-      <Navbar sticky="top" className={`top-nav-menu bg-${mode}`}>
-        <Container fluid>
+      <Navbar sticky="top" className={`top-nav-menu bg-white`}>
+        <Container>
           <Navbar.Brand>
             <Image
-              src={`/logos/${
-                mode === "default" ? "logo-green.png" : "logo-white.png"
-              }`}
+              src={`/logos/logo-green.png`}
               className="img-fluid"
               alt="ILA - Logo"
             />
           </Navbar.Brand>
 
           <div className="menu-wrapper">
-            <Button className="add-property">Profile</Button>
+            <NavDropdown
+              title={getProfileIcon()}
+              id="profile-dropdown"
+              className="profile-dropdown"
+              align="end"
+            >
+              <NavDropdown.Item
+                disabled
+              >{`${user?.firstName} ${user?.lastName}`}</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item
+                onClick={() => handleLogout()}
+                className="logout-btn"
+              >
+                LOGOUT
+              </NavDropdown.Item>
+            </NavDropdown>
           </div>
         </Container>
       </Navbar>
-    </header>
   );
 };
 

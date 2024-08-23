@@ -23,7 +23,6 @@ export const authSlice = createSlice({
         logout: (state) => {
             state.isUserLoggedIn = false;
             state.user = null;
-            state.menu = [];
             removeFromLocalStorage("token");
         },
         failAttempt: (state) => {

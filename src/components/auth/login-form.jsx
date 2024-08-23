@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../api/auth-service";
 import {
   failAttempt,
@@ -72,11 +72,7 @@ const LoginForm = () => {
               <SubmitButton formik={formik} loading={loading} label="Login" />
             ) : (
               <div className="recaptcha-wrapper d-flex justify-content-center">
-                <ReCAPTCHA
-                  // className={failure >= MAX_FAILURE ? "" : "d-none"}
-                  sitekey={RECAPTCHA_KEY}
-                  onChange={handleRecaptcha}
-                />
+                <ReCAPTCHA sitekey={RECAPTCHA_KEY} onChange={handleRecaptcha} />
               </div>
             )}
           </div>

@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../store/slices/auth-slice";
-import { Form, Row, Col, Dropdown } from "react-bootstrap";
+import { Form, Row, Col, Dropdown, Button } from "react-bootstrap";
 import { isInValid, isValid } from "../../helpers/function/forms";
 import SubmitButton from "./submit-button";
 
 const RegistrationForm = () => {
   const [loading, setLoading] = useState(false);
+  const fileInputRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ const RegistrationForm = () => {
     firstName: "asd",
     lastName: "asd",
     gender: "Male",
+    cv: null,
   };
 
   const validationSchema = Yup.object({
@@ -27,11 +29,28 @@ const RegistrationForm = () => {
       .required("Last name is required")
       .min(2, "At least 2 characters"),
     gender: Yup.string().required("Gender is required"),
+    cv: Yup.mixed()
+      .required("CV is required")
+      .test(
+        "fileSize",
+        "Maximum size is 10MB",
+        (value) => value && value.size <= 10 * 1024 * 1024
+      ),
   });
 
   const onSubmit = async (values) => {
     setLoading(true);
-    dispatch(register(formik.values));
+    const { cv, ...rest } = values;
+
+    // This part is for sending the form to the backend
+    // But it is not necessary in this case-study
+    const formData = new FormData();
+    formData.append("cv", values.cv);
+    formData.append("firstName", values.firstName);
+    formData.append("lastName", values.lastName);
+    formData.append("gender", values.gender);
+
+    dispatch(register(rest));
     navigate("/dashboard");
     setLoading(false);
   };
@@ -113,6 +132,29 @@ const RegistrationForm = () => {
               {formik.errors.gender}
             </div>
           )}
+        </Form.Group>
+
+        <Form.Group controlId="cv" className="form-input-group">
+          <Form.Control
+            className="user-input d-none"
+            type="file"
+            ref={fileInputRef}
+            onChange={(event) => {
+              formik.setFieldValue("cv", event.currentTarget.files[0]);
+            }}
+            isInvalid={isInValid(formik, "cv")}
+            isValid={isValid(formik, "cv")}
+          />
+          <Button
+            variant="outline-dark"
+            className="file-upload-button"
+            onClick={() => fileInputRef.current.click()}
+          >
+            {formik.values.cv ? formik.values.cv?.name : "Upload CV"}
+          </Button>
+          <Form.Control.Feedback type="invalid" className="form-feedback">
+            {formik.errors.cv}
+          </Form.Control.Feedback>
         </Form.Group>
 
         <SubmitButton formik={formik} loading={loading} label="Register" />

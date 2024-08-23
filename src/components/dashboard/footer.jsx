@@ -4,9 +4,9 @@ import "./footer.scss";
 
 const Footer = () => {
   return (
-    <footer>
-      <Container fluid>
-        <Row className="dashboard-footer">
+    <footer className="dashboard-footer">
+      <Container>
+        <Row className="dashboard-footer-container">
           <Col xs={{ span: 12, order: 2 }} sm={{ span: 6, order: 1 }} className="footer-copyright-section">
             <span className="footer-description">
               ILA - 2024 | &copy; All rights reserved

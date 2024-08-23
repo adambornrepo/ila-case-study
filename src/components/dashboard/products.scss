@@ -1,1 +1,139 @@
 @use "../../styles/variables.scss" as v;
+
+.products-wrapper {
+
+    .table-top-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 400;
+            gap: 5px;
+        }
+
+        .btn-new-product {
+            background-color: v.$color1;
+
+            &:hover {
+                background-color: v.$color2;
+            }
+        }
+    }
+
+    .products {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid v.$color2;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            font-weight: 300;
+            text-align: left;
+
+            td {
+                padding: 8px 12px;
+            }
+
+            th {
+                background-color: v.$color3;
+                color: v.$color2;
+                padding: 15px 12px;
+            }
+
+            tbody {
+
+                tr {
+                    border-bottom: 1px solid lightgray;
+                    background-color: white;
+                    cursor: pointer;
+
+
+                    &:hover {
+                        background-color: v.$color6;
+                    }
+                }
+            }
+        }
+
+        .product-cards-wrapper {
+            font-size: 14px;
+            font-weight: 300;
+            margin: 10px;
+
+            .product-card {
+                background-color: white;
+                cursor: pointer;
+
+
+                &:hover {
+                    background-color: v.$color6;
+                }
+
+                .product-title {
+                    font-weight: bold;
+                }
+
+                .product-description {
+                    flex-shrink: 1;
+                    font-size: 12px;
+                }
+
+                .product-price {
+                    color: v.$color1;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .summary-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+
+            .btn-edit,
+            .btn-delete {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 4px;
+            }
+
+            .btn-delete {
+                border: 1px solid v.$color-error-light;
+                background-color: v.$color-error-light;
+
+                &:hover {
+                    background-color: v.$color-error-dark;
+                }
+            }
+
+            .btn-edit {
+                border: 1px solid v.$color-warning-light;
+                background-color: v.$color-warning-light;
+
+                &:hover {
+                    background-color: v.$color-warning-dark;
+                }
+            }
+        }
+    }
+}

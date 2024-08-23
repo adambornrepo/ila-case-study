@@ -1,4 +1,4 @@
-import { Container, Image } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import FadeInAnimation from "../../components/common/fade-in-animation";
 import Branding from "../../components/auth/branding";
 import FormHeader from "../../components/auth/form-header";

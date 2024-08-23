@@ -13,12 +13,16 @@ const DashboardLayout = () => {
   return (
     <div
       className="dashboard-layout-container"
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh", overflow: "hidden" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
     >
       <Header />
-      <div className="layout-content-spacer" style={{ flexGrow: 1 }}>
+      <main className="layout-content-spacer" style={{ flexGrow: 1 }}>
         <Outlet />
-      </div>
+      </main>
       <Footer />
     </div>
   );

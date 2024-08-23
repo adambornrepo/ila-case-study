@@ -1,10 +1,10 @@
 // COLOR PALETTE
 $color1: #149494;
 $color2: #0f6363;
-$color3: #fdf3e6;
-$color4: #fad6ac;
-$color5: #bcb8b8;
-$color6: #f2f2f2;
+$color3: #c7f0f0;;
+$color4: #bcb8b8;
+$color5: #888888;
+$color6: #f1f1f1;
 
 
 $color-error-light: rgb(238, 50, 50);
@@ -21,30 +21,13 @@ $color-black: rgb(10, 10, 10);
 
 // COLORS FOR BOOTSTRAP
 
-// $primary: $color1;
-// $secondary: $color2;
-// $info: $color3;
-// $warning: $color4;
-// $success: $color5;
-// $danger: $color7;
+$primary: $color1;
+$info: $color-info-dark;
+$warning: $color-warning-dark;
+$success: $color-success-dark;
+$danger: $color-error-dark;
 
-// $font-family-sans-serif: "Poppins";
-// $navbar-nav-link-padding-x: "1rem";
+$font-family-sans-serif: "Poppins";
 
-// $navbar-light-color: $color2;
-// $navbar-nav-link-color: $color2;
-// $navbar-light-color: $color2;
-// $navbar-light-hover-color: $color1;
-// $navbar-light-active-color: $color1;
-// $navbar-dark-color: $color1;
-// $navbar-dark-hover-color: $color2;
-// $navbar-dark-active-color: $color2;
-// $nav-link-font-weight: 600;
-// $border-radius: 0;
-// $form-feedback-invalid-color: rgb(232, 63, 2);
-// $form-feedback-valid-color :$color2-light;
-// $form-range-thumb-bg: pink;
-// $form-range-thumb-active-bg: red;
-// $form-feedback-valid-color :$color2-light;
-// $pagination-disabled-bg: $color2-light;
-// $pagination-disabled-color: $color6;
+$form-feedback-invalid-color: $color-error-light;
+$form-feedback-valid-color :$color1;
