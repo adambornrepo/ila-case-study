@@ -15,8 +15,8 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
 
   const initialValues = {
-    firstName: "asd",
-    lastName: "asd",
+    firstName: "Derek",
+    lastName: "Powell",
     gender: "Male",
     cv: null,
   };
