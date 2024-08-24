@@ -34,7 +34,7 @@ const CreateProduct = () => {
 
   const validationSchema = Yup.object({
     title: Yup.string().required("Title is required").min(2, "Minimum 2 chars").max(150, "Maximum 150 chars"),
-    description: Yup.string().required("Description is required").min(2, "Minimum 2 chars").max(500, "Maximum 500 chars"),
+    description: Yup.string().required("Description is required").min(2, "Minimum 2 chars").max(800, "Maximum 800 chars"),
     category: Yup.string().required("Category is required").min(2, "Minimum 2 chars"),
     price: Yup.number()
       .required("Price is required")
@@ -96,7 +96,7 @@ const CreateProduct = () => {
               <Form.Control
                 className="user-input"
                 as="textarea"
-                maxLength={500}
+                maxLength={800}
                 rows={3}
                 placeholder="Description"
                 {...formik.getFieldProps("description")}
