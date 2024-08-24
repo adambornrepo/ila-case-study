@@ -10,7 +10,7 @@ import {
 import TableTop from "./table-top";
 import { Button, Spinner } from "react-bootstrap";
 import { HiPencilSquare, HiTrash } from "react-icons/hi2";
-import { deleteProduct } from "../../store/slices/product-slice";
+import { deleteProduct, setEditFormState, setEditProduct } from "../../store/slices/product-slice";
 import { deleteOneProduct } from "../../api/product-service";
 import toast from "react-hot-toast";
 
@@ -20,7 +20,8 @@ const ProductTable = ({ loading }) => {
   const navigate = useNavigate();
 
   const handleEdit = (product) => {
-    console.log("Edit product", product);
+    dispatch(setEditProduct(product));
+    dispatch(setEditFormState(true));
   };
 
   const handleDelete = async (productId) => {

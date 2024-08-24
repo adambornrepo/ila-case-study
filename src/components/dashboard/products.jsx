@@ -13,7 +13,6 @@ const Products = () => {
   const fetchProducts = async () => {
     try {
       const resp = await getAllProducts();
-      console.log(resp);
       dispatch(setProductsData(resp));
     } catch (error) {
       toast.error(error.message);

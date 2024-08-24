@@ -6,6 +6,7 @@ import {
 import { Button, ButtonGroup } from "react-bootstrap";
 import { BsList, BsCardText, BsPlus } from "react-icons/bs";
 import CreateProduct from "./create-product";
+import EditProduct from "./edit-product";
 
 const TableTop = () => {
   const { tableMode } = useSelector((state) => state.product);
@@ -44,6 +45,7 @@ const TableTop = () => {
         </Button>
       </div>
       <CreateProduct />
+      <EditProduct />
     </>
   );
 };

@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import { isInValid, isValid } from "../../helpers/function/forms";
 import { createProduct } from "../../api/product-service";
 import toast from "react-hot-toast";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import SubmitButton from "../auth/submit-button";
 import "./product-form.scss";
 
@@ -33,9 +33,9 @@ const CreateProduct = () => {
   };
 
   const validationSchema = Yup.object({
-    title: Yup.string().required("Title is required"),
-    description: Yup.string().required("Description is required"),
-    category: Yup.string().required("Category is required"),
+    title: Yup.string().required("Title is required").min(2, "Minimum 2 chars").max(150, "Maximum 150 chars"),
+    description: Yup.string().required("Description is required").min(2, "Minimum 2 chars").max(300, "Maximum 300 chars"),
+    category: Yup.string().required("Category is required").min(2, "Minimum 2 chars"),
     price: Yup.number()
       .required("Price is required")
       .positive("Price must be positive"),
@@ -95,7 +95,9 @@ const CreateProduct = () => {
             <Form.Group controlId="description" className="form-input-group">
               <Form.Control
                 className="user-input"
-                type="text"
+                as="textarea"
+                maxLength={300}
+                rows={3}
                 placeholder="Description"
                 {...formik.getFieldProps("description")}
                 isInvalid={isInValid(formik, "description")}

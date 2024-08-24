@@ -4,6 +4,7 @@ const initialState = {
     data: [],
     refresher: false,
     tableMode: "short",
+    productDetails: null,
     productToEdit: null,
     editFormState: false,
     createFormState: false
@@ -21,6 +22,9 @@ export const productSlice = createSlice({
         },
         setProductsData: (state, action) => {
             state.data = action.payload;
+        },
+        setProductDetails: (state, action) => {
+            state.productDetails = state.data.find(product => product.id === action.payload);
         },
         editProduct: (state, action) => {
             const index = state.data.findIndex(product => product.id === action.payload.id);
@@ -46,5 +50,5 @@ export const productSlice = createSlice({
     }
 })
 
-export const { triggerRefresh, setTableMode, setProductsData, editProduct, deleteProduct, addProduct, setCreateFormState, setEditFormState } = productSlice.actions;
+export const { triggerRefresh, setTableMode, setProductsData, setProductDetails, editProduct, deleteProduct, addProduct, setEditProduct, setCreateFormState, setEditFormState } = productSlice.actions;
 export default productSlice.reducer;

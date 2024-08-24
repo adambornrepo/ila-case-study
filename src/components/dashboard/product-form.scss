@@ -2,19 +2,42 @@
 
 .create-product-modal,
 .edit-product-modal {
-    .form-input-group {
-        position: relative;
-        margin-bottom: 24px;
+    .modal-content {
+        .modal-header {
+            padding: 10px 15px;
+            background-color: v.$color1;
 
-        .user-input {
-            padding: 10px;
-            border-radius: 8px;
+
+            .modal-title {
+                font-size: 15px;
+                font-weight: 400;
+                color: white;
+                text-align: center;
+            }
+
+            .btn-close {
+                padding: 5px;
+                border-radius: 50%;
+                background-color: white;
+            }
         }
 
-        .form-feedback {
-            position: absolute;
-            bottom: -20px;
-            left: 0px;
+        .form-input-group {
+            position: relative;
+            margin-bottom: 24px;
+
+            .user-input {
+                font-size: 14px;
+                padding: 10px;
+                border-radius: 8px;
+                padding-right: 30px;
+            }
+
+            .form-feedback {
+                position: absolute;
+                bottom: -20px;
+                left: 0px;
+            }
         }
     }
 }
