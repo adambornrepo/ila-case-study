@@ -7,7 +7,7 @@ const Error500Page = () => {
   return (
     <>
       <Container className="error-page-container">
-        <Row noGutters className="error-page-sections">
+        <Row className="error-page-sections">
           <Col xs={12} lg={6} className="error-page-section">
             <Image
               src={"/images/error/500.svg"}

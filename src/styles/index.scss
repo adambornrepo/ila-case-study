@@ -11,7 +11,7 @@
 
 html {
   scroll-behavior: auto !important;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 h1,
@@ -33,4 +33,13 @@ body,
 
 .container {
   transition: all 0.2s ease;
+}
+
+.summary-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }

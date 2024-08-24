@@ -10,7 +10,9 @@ const RegistrationPage = () => {
     <Container fluid className="auth-page-container">
       <div className="page-content-wrapper">
         <div className="auth-form-side">
-          <Branding />
+          <FadeInAnimation direction="left" range="50px" time="0.8s">
+            <Branding />
+          </FadeInAnimation>
         </div>
         <div className="auth-form-main">
           <FadeInAnimation direction="right" range="50px" time="0.8s">

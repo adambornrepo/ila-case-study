@@ -150,7 +150,9 @@ const RegistrationForm = () => {
             className="file-upload-button"
             onClick={() => fileInputRef.current.click()}
           >
-            {formik.values.cv ? formik.values.cv?.name : "Upload CV"}
+            <span className="summary-text">
+              {formik.values.cv ? formik.values.cv?.name : "Upload CV"}
+            </span>
           </Button>
           <Form.Control.Feedback type="invalid" className="form-feedback">
             {formik.errors.cv}

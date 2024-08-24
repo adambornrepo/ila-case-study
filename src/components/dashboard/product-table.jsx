@@ -42,7 +42,7 @@ const ProductTable = ({ loading }) => {
         header: "Product Name",
         cell: (info) => (
           <span
-            className={tableMode === "short" ? "summary-text" : "compact-text"}
+            className={tableMode === "compact" ? "summary-text" : "flexible-text"}
             title={info.getValue()}
           >
             {info.getValue()}
@@ -53,7 +53,7 @@ const ProductTable = ({ loading }) => {
         header: "Description",
         cell: (info) => (
           <span
-            className={tableMode === "short" ? "summary-text" : "compact-text"}
+            className={tableMode === "compact" ? "summary-text" : "flexible-text"}
             title={info.getValue()}
           >
             {info.getValue()}
@@ -168,7 +168,7 @@ const ProductTable = ({ loading }) => {
                   <div
                     className={`product-title 
                       ${
-                        tableMode === "short" ? "summary-text" : "compact-text"
+                        tableMode === "compact" ? "summary-text" : "flexible-text"
                       }`}
                   >
                     {product.title}
@@ -176,7 +176,7 @@ const ProductTable = ({ loading }) => {
                   <div
                     className={`product-description 
                       ${
-                        tableMode === "short" ? "summary-text" : "compact-text"
+                        tableMode === "compact" ? "summary-text" : "flexible-text"
                       }`}
                   >
                     {product.description}

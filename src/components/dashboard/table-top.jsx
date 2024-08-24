@@ -20,17 +20,17 @@ const TableTop = () => {
         <ButtonGroup className="table-modes">
           <Button
             variant="secondary"
-            title="Short"
-            active={tableMode === "short"}
-            onClick={() => dispatch(setTableMode("short"))}
+            title="Compact"
+            active={tableMode === "compact"}
+            onClick={() => dispatch(setTableMode("compact"))}
           >
             <BsList size={16} />
           </Button>
           <Button
             variant="secondary"
-            title="Compact"
-            active={tableMode === "compact"}
-            onClick={() => dispatch(setTableMode("compact"))}
+            title="Flexible"
+            active={tableMode === "flexible"}
+            onClick={() => dispatch(setTableMode("flexible"))}
           >
             <BsCardText size={16} />
           </Button>

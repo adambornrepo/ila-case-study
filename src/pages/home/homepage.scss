@@ -1,0 +1,55 @@
+@use "../../styles/variables.scss" as v;
+
+.home-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: v.$color-white;
+    background: radial-gradient(ellipse at center, v.$color1, v.$color7, v.$color2);
+
+    .homepage-branding-wrapper {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        height: fit-content;
+
+        .image-wrapper img {
+            width: 200px;
+        }
+
+        .logo-text {
+            position: relative;
+            top: -20px;
+            font-size: 1rem;
+            font-weight: 200;
+            width: 60%;
+            min-width: fit-content;
+            margin: 0 auto;
+            color: v.$color-white;
+
+            @media (min-width: 576px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        .auth-login-button {
+            background-color: v.$color-white;
+            color: v.$color2;
+            padding: 8px 24px;
+            border-radius: 50px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            font-weight: 300;
+
+            &:hover {
+                background-color: v.$color2;
+                color: v.$color-white;
+            }
+        }
+    }
+}
