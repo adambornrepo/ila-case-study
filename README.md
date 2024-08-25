@@ -2,6 +2,7 @@
 
 This project is a frontend case study web application developed for the International Labour Association (ILA). It demonstrates the implementation of various modern web development techniques using ReactJS.
 
+
 ## Screen Preview
 
 - [Landing Page](./public/images/screen/home.png)
@@ -16,6 +17,7 @@ This project is a frontend case study web application developed for the Internat
 
 The live application is available at: [ILA Case Study](https://ilacase.vercel.app/)
 
+
 ## Test User
 
 For authentication testing, you can use the following credentials:
@@ -29,17 +31,19 @@ Use these credentials to explore all the features and functionalities of the app
 Alternatively, you can create a new account to test the registration process and experience the application as a new user.
 
 
-
 ## List of Contents
 
 1. [Features](#features)
 2. [Installation and Usage](#installation-and-usage)
 2. [Environment Variables](#environment-variables)
 3. [Dependencies](#dependencies)
-4. [License](#license)
-5. [Author](#author)
+4. [Docker Setup](#docker-setup)
+5. [License](#license)
+6. [Author](#author)
+
 
 ## Features
+
 - **Single Page Application (SPA)**: The application is built as a SPA using ReactJS for seamless user experience.
   
 - **Pages**: Includes Home Page, Login, Registration, Dashboard, Product Details, and custom error pages (404 & 500).
@@ -60,7 +64,7 @@ Alternatively, you can create a new account to test the registration process and
 
 - **API & Validation**: Axios is used for API requests, and Yup is used for form validation.
 
-- **User Feedback**: User actions are accompanied by feedback messages displayed using react-hot-toast.
+- **User Feedback**: User actions are accompanied by feedback messages displayed using [React Hot Toast](https://react-hot-toast.com/).
 
 - **Routing**: Navigation and routing are managed with [React Router Dom](https://reactrouter.com/en/main).
 
@@ -70,6 +74,7 @@ Alternatively, you can create a new account to test the registration process and
 
 
 ## Installation and Usage
+
 To set up the project locally, use the following steps:
 
 ### Using npm
@@ -78,10 +83,11 @@ To set up the project locally, use the following steps:
 npm install
 ```
 
-
 ```bash
 npm start
 ```
+
+
 ## Environment Variables
 
 ```.env
@@ -92,6 +98,7 @@ REACT_APP_BASE_URL=
 REACT_APP_AUTH0_DOMAIN=
 REACT_APP_AUTH0_CLIENT_ID=
 ```
+
 
 ## Dependencies
 
@@ -110,6 +117,7 @@ The application relies on the following key dependencies:
 -   `react-router-dom`
 -   `sass`
 -   `yup`
+
 
 ## Docker Setup
 
@@ -148,9 +156,11 @@ This command will build the Docker image and start the container according to th
 
 Once the setup is complete, the application will be accessible at http://localhost:3000.
 
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 ## Author
 
