@@ -3,7 +3,6 @@ import AuthLayout from "../layouts/auth-layout";
 import DashboardLayout from "../layouts/dashboard-layout";
 import PrivateRoute from "./private-route";
 import HomePage from "../pages/home/homepage";
-import LoginPage from "../pages/auth/login-page";
 import RegistrationPage from "../pages/auth/registration-page";
 import ProductListPage from "../pages/dashboard/product-list-page";
 import ProductDetailsPage from "../pages/dashboard/product-details-page";
@@ -20,10 +19,6 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-      // {
-      //   path: "login",
-      //   element: <LoginPage />,
-      // },
       {
         path: "register",
         element: (

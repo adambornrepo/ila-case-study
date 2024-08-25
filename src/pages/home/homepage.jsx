@@ -1,10 +1,10 @@
 import FadeInAnimation from "../../components/common/fade-in-animation";
+import RedirectLoading from "../../components/auth/redirect-loading";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button, Container, Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import "./homepage.scss";
-import RedirectLoading from "../../components/auth/redirect-loading";
 
 const HomePage = () => {
   const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();

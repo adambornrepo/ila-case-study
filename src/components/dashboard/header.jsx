@@ -7,12 +7,12 @@ import { FaUserCircle } from "react-icons/fa";
 import "./header.scss";
 
 const Header = () => {
-  const { user } = useSelector((state) => state.auth);
-  const { logout } = useAuth0();
+  const userState = useSelector((state) => state.auth)?.user;
+  const { logout, user } = useAuth0();
   const dispatch = useDispatch();
 
   const getProfileIcon = () => {
-    switch (user?.gender) {
+    switch (userState?.gender) {
       case "Male":
         return <SlUser className="profile-icon" size={30} />;
       case "Female":
@@ -20,6 +20,11 @@ const Header = () => {
       default:
         return <FaUserCircle className="profile-icon" size={30} />;
     }
+  };
+
+  const getUserDisplayName = () => {
+    const fullName = `${userState?.firstName} ${userState?.lastName}`;
+    return userState ? fullName : user?.name;
   };
 
   const handleLogout = () => {
@@ -47,9 +52,7 @@ const Header = () => {
             className="profile-dropdown"
             align="end"
           >
-            <NavDropdown.Item
-              disabled
-            >{`${user?.firstName} ${user?.lastName}`}</NavDropdown.Item>
+            <NavDropdown.Item disabled>{getUserDisplayName()}</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item
               onClick={() => handleLogout()}

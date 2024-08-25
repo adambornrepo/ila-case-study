@@ -1,13 +1,6 @@
-import axios from "axios";
-
-const baseURL = process.env.REACT_APP_BASE_URL;
+import api from "../helpers/api";
 
 export const login = async (payload) => {
-    const resp = await axios.post(`${baseURL}/auth/login`, payload, {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    const data = await resp.data;
+    const { data } = await api.post("/auth/login", payload);
     return data;
 };

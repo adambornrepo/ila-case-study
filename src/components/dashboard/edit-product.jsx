@@ -36,9 +36,17 @@ const EditProduct = () => {
   };
 
   const validationSchema = Yup.object({
-    title: Yup.string().required("Title is required").min(2, "Minimum 2 chars").max(150, "Maximum 150 chars"),
-    description: Yup.string().required("Description is required").min(2, "Minimum 2 chars").max(800, "Maximum 800 chars"),
-    category: Yup.string().required("Category is required").min(2, "Minimum 2 chars"),
+    title: Yup.string()
+      .required("Title is required")
+      .min(2, "Minimum 2 chars")
+      .max(150, "Maximum 150 chars"),
+    description: Yup.string()
+      .required("Description is required")
+      .min(2, "Minimum 2 chars")
+      .max(800, "Maximum 800 chars"),
+    category: Yup.string()
+      .required("Category is required")
+      .min(2, "Minimum 2 chars"),
     price: Yup.number()
       .required("Price is required")
       .positive("Price must be positive"),
@@ -48,7 +56,7 @@ const EditProduct = () => {
   const onSubmit = async (values) => {
     setLoading(true);
     try {
-      const resp = await updateProduct({ id: productToEdit.id, data: values });
+      const resp = await updateProduct(productToEdit.id, values);
       dispatch(editProduct(resp));
       toast.success("Product updated");
       handleClose();

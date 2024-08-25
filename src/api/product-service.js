@@ -1,53 +1,25 @@
-import axios from "axios";
-
-const baseURL = process.env.REACT_APP_BASE_URL;
+import api from "../helpers/api";
 
 export const getAllProducts = async () => {
-    const resp = await axios.get(`${baseURL}/products`, {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    const data = await resp.data;
+    const { data } = await api.get("/products");
     return data;
 };
-
 export const getProductDetails = async (productId) => {
-    const resp = await axios.get(`${baseURL}/products/${productId}`, {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    const data = await resp.data;
+    const { data } = await api.get(`/products/${productId}`);
     return data;
 };
 
 export const createProduct = async (payload) => {
-    const resp = await axios.post(`${baseURL}/products`, payload, {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    const data = await resp.data;
+    const { data } = await api.post("/products", payload);
     return data;
 };
 
-export const updateProduct = async (payload) => {
-    const resp = await axios.patch(`${baseURL}/products/${payload.id}`, payload.data, {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    const data = await resp.data;
+export const updateProduct = async (productId, payload) => {
+    const { data } = await api.patch(`/products/${productId}`, payload);
     return data;
 };
 
 export const deleteOneProduct = async (productId) => {
-    const resp = await axios.get(`${baseURL}/products/${productId}`, {
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    const data = await resp.data;
+    const { data } = await api.delete(`/products/${productId}`);
     return data;
 };
