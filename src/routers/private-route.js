@@ -6,19 +6,22 @@ import RedirectLoading from "../components/auth/redirect-loading";
  * Check user is logged in, if not, redirect to login page
  * @returns protected route
  */
-const PrivateRoute = ({ children }) => {
-  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0()
 
-  if (isLoading) {
-    return <RedirectLoading />;
-  }
+const withAuth = (ProtectedComponent) => {
+  return (props) => {
+    const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
-  if (!isAuthenticated) {
-    loginWithRedirect()
-    return <RedirectLoading />;
-  }
+    if (isLoading) {
+      return <RedirectLoading />;
+    }
 
-  return children;
+    if (!isAuthenticated) {
+      loginWithRedirect()
+      return <RedirectLoading />;
+    }
+
+    return <ProtectedComponent {...props} />;
+  };
 };
 
-export default PrivateRoute;
+export default withAuth;

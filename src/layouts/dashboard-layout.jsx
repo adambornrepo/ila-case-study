@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/dashboard/header";
 import Footer from "../components/dashboard/footer";
+import withAuth from "../routers/private-route";
 
 const DashboardLayout = () => {
   const location = useLocation();
@@ -28,4 +29,4 @@ const DashboardLayout = () => {
   );
 };
 
-export default DashboardLayout;
+export default withAuth(DashboardLayout);
