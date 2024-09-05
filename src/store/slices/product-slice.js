@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     data: [],
     refresher: false,
-    tableMode: "short",
+    tableMode: "compact",
     productDetails: null,
     productToEdit: null,
     editFormState: false,

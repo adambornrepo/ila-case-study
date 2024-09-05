@@ -1,5 +1,4 @@
 import FadeInAnimation from "../../components/common/fade-in-animation";
-import RedirectLoading from "../../components/auth/redirect-loading";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button, Container, Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -7,17 +6,13 @@ import { Navigate } from "react-router-dom";
 import "./homepage.scss";
 
 const HomePage = () => {
-  const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
   const { user } = useSelector((state) => state.auth);
 
   if (isAuthenticated) {
     return (
       <>{user ? <Navigate to="/dashboard" /> : <Navigate to="/register" />}</>
     );
-  }
-
-  if (isLoading) {
-    return <RedirectLoading />;
   }
 
   return (
